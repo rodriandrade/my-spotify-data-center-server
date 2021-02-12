@@ -1,8 +1,14 @@
 {
     "redirects": [
-        { 
-            "source": "/", 
-            "destination": "https://github.com/vercel/vercel" 
+      { "source": "/login", "destination": "https://github.com/vercel/vercel" }
+    ],
+    "routes": [
+        {
+            "src": "/login",
+            "dest": "/app.js",
+            "methods": [
+                "GET"
+            ]
         }
     ]
 }
