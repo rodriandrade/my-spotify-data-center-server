@@ -45,5 +45,7 @@
                 "GET"
             ]
         }        
-    ]
+    ],
+    "redirects": [{ "source": "/login", "destination": "https://accounts.spotify.com/authorize?(.*)" }]
+
 }
