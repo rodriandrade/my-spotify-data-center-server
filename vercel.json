@@ -6,46 +6,6 @@
             "use": "@now/node-server"
         }
     ],
-    "routes": [
-        {
-            "src": ".*",
-            "methods": [
-                "GET",
-                "POST",
-                "DELETE",
-                "PUT",
-                "OPTIONS"
-            ],
-            "headers": {
-                "Access-Control-Allow-Origin": "*",
-                "Access-Control-Allow-Headers": "Origin, X-Requested-With, Content-Type, Accept",
-                "Access-Control-Allow-Credentials": "true"
-            },
-            "dest": "app.js",
-            "continue": true
-        },
-        {
-            "src": "/login",
-            "dest": "https://accounts.spotify.com/authorize?(.*)",
-            "methods": [
-                "GET"
-            ]
-        },
-        {
-            "src": "/callback",
-            "dest": "/app.js",
-            "methods": [
-                "GET"
-            ]
-        },
-        {
-            "src": "/refresh_token",
-            "dest": "/app.js",
-            "methods": [
-                "GET"
-            ]
-        }        
-    ],
     "redirects": [{ "source": "/login", "destination": "https://accounts.spotify.com/authorize?(.*)" }]
 
 }
