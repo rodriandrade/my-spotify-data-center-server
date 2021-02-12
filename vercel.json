@@ -1,10 +1,10 @@
 {
     "redirects": [
-      { "source": "/login", "destination": "https://github.com/vercel/vercel" }
+      { "source": "https://my-spotify-data-center-server.rodriandrade.vercel.app/login", "destination": "https://github.com/vercel/vercel" }
     ],
     "routes": [
         {
-            "src": "/login",
+            "src": "https://my-spotify-data-center-server.rodriandrade.vercel.app/login",
             "dest": "/app.js",
             "methods": [
                 "GET"
