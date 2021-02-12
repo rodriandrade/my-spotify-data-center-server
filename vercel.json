@@ -2,7 +2,7 @@
     "redirects": [
         { 
             "source": "/login", 
-            "destination": "https://accounts.spotify.com/authorize?(.*)" 
+            "destination": "https://github.com/vercel/vercel" 
         }
     ]
 }
