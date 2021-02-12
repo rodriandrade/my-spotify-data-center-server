@@ -1,7 +1,7 @@
 {
     "redirects": [
         { 
-            "source": "/login", 
+            "source": "/", 
             "destination": "https://github.com/vercel/vercel" 
         }
     ]
