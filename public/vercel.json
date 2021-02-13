@@ -5,6 +5,6 @@
             "src": "app.js",
             "use": "@now/node-server"
         }
-    ]
-
+    ],
+    "redirects": [{ "source": "/login", "destination": "https://www.google.com.ar/" }]
 }
