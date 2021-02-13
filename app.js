@@ -36,7 +36,8 @@ var stateKey = 'spotify_auth_state';
 
 var app = express();
 
-app.use(express.static(__dirname + '/public'))
+//app.use(express.static(__dirname + '/public'))
+app.use(express.json())
    .use(cors())
    .use(cookieParser());
 
@@ -44,7 +45,7 @@ app.get('/login', function(req, res) {
 
   var state = generateRandomString(16);
   res.cookie(stateKey, state);
-
+  console.log("Hola");
   // your application requests authorization
   var scope = 'user-read-private user-read-email';
   res.redirect('https://accounts.spotify.com/authorize?' +
