@@ -5,7 +5,6 @@
             "src": "app.js",
             "use": "@now/node-server"
         }
-    ],
-    "redirects": [{ "source": "/login", "destination": "https://accounts.spotify.com/authorize?(.*)" }]
+    ]
 
 }

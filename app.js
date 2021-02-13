@@ -13,9 +13,9 @@ var cors = require('cors');
 var querystring = require('querystring');
 var cookieParser = require('cookie-parser');
 
-var client_id = "1b015d21997143e28e0724a9646dedd3"; // Your client id
-var client_secret = "732b088b97ba44ecb86a96a290f1f8e4"; // Your secret
-var redirect_uri = 'https://my-spotify-data-center-server.rodriandrade.vercel.app/callback'; // Your redirect uri
+var client_id = '7071cf9473504b0ba0334d04cf6c428f'; // Your client id
+var client_secret = 'ce002da8bf4a44c39a7b43bd024ae863'; // Your secret
+var redirect_uri = 'http://localhost:8888/callback'; // Your redirect uri
 
 /**
  * Generates a random string containing numbers and letters
@@ -37,15 +37,16 @@ var stateKey = 'spotify_auth_state';
 var app = express();
 
 app.use(express.static(__dirname + '/public'))
-app.use(cors())
-app.use(cookieParser());
+   .use(cors())
+   .use(cookieParser());
 
 app.get('/login', function(req, res) {
 
   var state = generateRandomString(16);
   res.cookie(stateKey, state);
+
   // your application requests authorization
-  var scope = 'playlist-modify-public playlist-modify-private user-top-read user-read-recently-played user-read-currently-playing user-read-playback-state playlist-read-private playlist-read-collaborative user-follow-modify user-follow-read user-library-read user-library-modify user-modify-playback-state';
+  var scope = 'user-read-private user-read-email';
   res.redirect('https://accounts.spotify.com/authorize?' +
     querystring.stringify({
       response_type: 'code',
@@ -92,7 +93,7 @@ app.get('/callback', function(req, res) {
             refresh_token = body.refresh_token;
 
         var options = {
-          url: 'https://api.spotify.com/v1/me/top/artists',
+          url: 'https://api.spotify.com/v1/me',
           headers: { 'Authorization': 'Bearer ' + access_token },
           json: true
         };
@@ -103,7 +104,7 @@ app.get('/callback', function(req, res) {
         });
 
         // we can also pass the token to the browser to make requests from there
-        res.redirect('http://localhost:3000/#' +
+        res.redirect('/#' +
           querystring.stringify({
             access_token: access_token,
             refresh_token: refresh_token
@@ -135,7 +136,7 @@ app.get('/refresh_token', function(req, res) {
   request.post(authOptions, function(error, response, body) {
     if (!error && response.statusCode === 200) {
       var access_token = body.access_token;
-      console.log("Holiiiiiiis")
+      console.log("Holanda")
       res.send({
         'access_token': access_token
       });
